@@ -175,8 +175,10 @@ connection.commit()
 
 
 # 1. Узнайте какие телефоны из Kivano стоят столько же сколько и компьютеры из Sulpak.
-######################### 2. Узнайте самую последнюю модель Iphone в магазинах. ########################
-######################### 3. Выведите на экран список всех ноутбуков из sulpak и только тех телефонов которые имеют одинаковую дату выхода с компьютером из таблицы kivano.########################
+cursor.execute('SELECT kivano.product_name, sulpak.product_name, kivano.price, sulpak.price FROM kivano, sulpak WHERE kivano.category_id=1 AND sulpak.category_id=2 AND kivano.price=sulpak.price;')
+print(cursor.fetchall())
+# 2. Узнайте самую последнюю модель Iphone в магазинах. SELECT kivano.product_name, sulpak.product_name FROM kivano, sulpak WHERE product_name LIKE %Iphone% AND 
+# 3. Выведите на экран список всех ноутбуков из sulpak и только тех телефонов которые имеют одинаковую дату выхода с компьютером из таблицы kivano.########################
 # 4. Выведите все китайские продукты.
 # 5. Напишите запрос, который выводит продукты любого магазина в порядке их добавления.
 # 6. Найдите товары, которые есть в kivano но нет в sulpak.
