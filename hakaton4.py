@@ -233,5 +233,9 @@ cursor.execute('''
                 ''')
 print(f'товар который лежит посередине в таблице sulpak: \n{cursor.fetchall()}')
 # 24. Поменяйте страну на South Korea везде где страна Korea и компания Asus.
+cursor.execute("UPDATE produsers SET produser_country = 'South Korea' WHERE produser_country = 'Korea' AND produser_company = 'Asus'; UPDATE produsers SET produser_country = 'South Korea' WHERE produser_country = 'Korea' AND produser_company = 'Asus'")
+print(cursor.fetchall())
 # 25. В producers поменяйте Nokia на Microsoft везде где у компании Nokia указана страна USA.
+cursor.execute("UPDATE produsers SET produser_company='Microsoft' WHERE produser_company = 'Nokia' AND produser_country='USA'")
+print(cursor.fetchall())
 
